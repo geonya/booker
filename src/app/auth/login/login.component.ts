@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
+import { CreateUserInput } from '../../../generated-types'
+import { LoginService } from './login.service'
 
 @Component({
   selector: 'app-login',
@@ -6,11 +9,16 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private readonly loginService: LoginService,
+    private readonly router: Router,
+  ) {}
 
   ngOnInit(): void {}
 
-  login({ email, password }: any) {
-    console.log(email, password)
+  login(loginInput: CreateUserInput) {
+    this.loginService
+      .login(loginInput)
+      .subscribe(() => this.router.navigate(['/']))
   }
 }
