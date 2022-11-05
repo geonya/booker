@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { concatMap } from 'rxjs'
-import { CreateUserGQL } from '../../../generated-types'
+import { CreateUserGQL, CreateUserInput } from '../../../generated-types'
 import { LoginService } from '../login/login.service'
 
 @Component({
@@ -18,12 +18,12 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  signUp({ email, password }: any) {
+  signUp(createUserInput: CreateUserInput) {
     this.createUserGql
-      .mutate({ input: { email, password } })
+      .mutate({ input: createUserInput })
       .pipe(
         concatMap(() => {
-          return this.loginService.login({ email, password })
+          return this.loginService.login(createUserInput)
         }),
       )
       .subscribe(() => {
