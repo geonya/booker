@@ -1,0 +1,14 @@
+query getBookmarks {
+  getBookmarks {
+    ok
+    error
+    bookmarks {
+      id
+      name
+      links
+      createdAt
+      updatedAt
+      userId
+    }
+  }
+}

@@ -1,0 +1,6 @@
+mutation createBookmark($input: CreateBookmarkInput!) {
+  createBookmark(input: $input) {
+    ok
+    error
+  }
+}
