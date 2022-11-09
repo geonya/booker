@@ -1,0 +1,9 @@
+query GetBookmark($input: GetBookmarkInput!) {
+  getBookmark(input: $input) {
+    ok
+    error
+    bookmark {
+      ...BookmarkFragment
+    }
+  }
+}

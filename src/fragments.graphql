@@ -1,0 +1,21 @@
+fragment BookmarkFragment on Bookmark {
+  id
+  name
+  links {
+    ...LinkFragment
+  }
+  createdAt
+  updatedAt
+  userId
+}
+
+fragment LinkFragment on Link {
+  id
+  url
+  title
+  images
+  bookmarkId
+  siteName
+  createdAt
+  updatedAt
+}

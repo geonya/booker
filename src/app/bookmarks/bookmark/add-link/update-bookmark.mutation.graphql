@@ -1,0 +1,9 @@
+mutation UpdateBookmark($input: UpdateBookmarkInput!) {
+  updateBookmark(input: $input) {
+    ok
+    error
+    bookmark {
+      ...BookmarkFragment
+    }
+  }
+}

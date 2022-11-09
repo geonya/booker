@@ -1,0 +1,9 @@
+query GetLinks($input: GetLinksInput!) {
+  getLinks(input: $input) {
+    ok
+    error
+    links {
+      ...LinkFragment
+    }
+  }
+}
